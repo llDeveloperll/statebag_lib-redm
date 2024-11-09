@@ -9,8 +9,6 @@ lua54 'yes'
 code 'Vilao.lib.state_bag'
 framework "rsg"
 
-shared_script '@ox_lib/init.lua'
-
 files {
     'shared/*.lua'
 }
