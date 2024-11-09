@@ -105,6 +105,28 @@ return Initialize()
             TaskSetBlockingOfNonTemporaryEvents(entity, value)
         end
     end)
+
+
+    local StateBag = exports['StateBagLib']
+
+    local playerId = PlayerId()
+    local serverId = GetPlayerServerId(playerId)
+
+    local states = {
+        localPlayer = LocalPlayer.state.isLoggedIn,
+        bagLocal = StateBag:GetBagValue("LocalPlayer.state", "isLoggedIn"),
+        bagClient = StateBag:GetClientBagValue("isLoggedIn"),
+        bagPlayer = StateBag:GetBagValue("player:" .. serverId, "isLoggedIn"),
+        bagPlayerState = StateBag:GetBagValue("player:state", "isLoggedIn"),
+        bagPlayerSource = StateBag:GetBagValue("player:source", "isLoggedIn")
+    }
+
+    print(
+        'localPlayer',states.localPlayer,
+        'bagLocal',states.bagLocal,
+        'bagClient',states.bagClient,
+        'bagPlayer',states.bagPlayer
+    )
 ]]
 
 -- Explanation:
